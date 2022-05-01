@@ -35,11 +35,12 @@ _persistent identity_. When we speak of different versions of the same
 data structure, we mean that the different versions share a common
 persistent identity.
 
-+-----+-----+
+| Concept          | SML                       |
+|:-----------------|:--------------------------|
 | Abstractions     | Signatures in Standard ML |
 | Implementations  | Structures or functors    |
 | Objects/versions | Values                    |
-+-----+-----+
+
 
 [^1]: Okasaki, C. (1999). Purely functional data structures.
 [^2]: Robert Harper. Programming in Standard ML. Draft, 2013.
