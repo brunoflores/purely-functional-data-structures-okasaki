@@ -22,6 +22,18 @@ Robert Harper [^2],
 > [..] content ourselves with the observation that
 > _laziness is a special case of eagerness_.
 
+## Terminology
+
+- _Abstract data type_: A type and a collection of functions on that type.
+Also, simply an _abstraction_.
+- _Concrete realization_: Also _implementation_. Implementation need not be
+actualized as code - a concrete design is sufficient.
+- _Instance of data type_: Such as a particular list or tree.
+Refer to such an instance in general as _object_ or a _version_.
+- _Unique identity, invariant under updates_: Refer to this identity as a
+_persistent identity_. When we speak of different versions of the same
+data structure, we mean that the different versions share a common
+persistent identity.
 
 [^1]: Okasaki, C. (1999). Purely functional data structures.
 [^2]: Robert Harper. Programming in Standard ML. Draft, 2013.
