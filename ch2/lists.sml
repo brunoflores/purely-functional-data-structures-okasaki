@@ -20,3 +20,20 @@ structure List : Stack = struct
   fun head s = hd s
   fun tail s = tl s
 end
+
+(* Implementation of stacks using a custom datatype. *)
+structure CustomStack : Stack = struct
+  datatype 'a Stack = Nil | Cons of 'a * 'a Stack
+
+  val empty = Nil
+  fun isEmpty Nil = true
+    | isEmpty _   = false
+
+  fun cons (x, s) = Cons (x ,s)
+
+  fun head Nil           = raise Empty
+    | head (Cons (x, _)) = x
+
+  fun tail Nil           = raise Empty
+    | tail (Cons (_, s)) = s
+end
