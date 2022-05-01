@@ -15,7 +15,7 @@ Nodes unaffected by an update can be _shared_ between versions.
 
 Files:
 
-- [](lists.sml)
+- <lists.sml>
 
 ## Binary search trees
 
