@@ -41,6 +41,10 @@ persistent identity.
 | Implementations  | Structures or functors    |
 | Objects/versions | Values                    |
 
+## Chapters
+
+- Chapter 1: Introduction (you are here)
+- [Chapter 2: Persistence](ch2)
 
 [^1]: Okasaki, C. (1999). Purely functional data structures.
 [^2]: Robert Harper. Programming in Standard ML. Draft, 2013.
