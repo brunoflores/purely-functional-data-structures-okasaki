@@ -19,4 +19,16 @@ Files:
 
 ## Binary search trees
 
-`TODO`
+Recap: Binary trees with elements stored at the interior nodes in
+_symmetric order_. In SML:
+
+``sml
+datatype Tree = E | T of Tree * Elem * Tree
+```
+
+where `Elem` is some fixed type of _totally-ordered elements_.
+
+Not polymorphic in the type of elements because they cannot accept
+arbitrary types as elements. We make the type of elements and its
+attendant comparison functions parameter of the _functor_ that
+implements binary search trees.
