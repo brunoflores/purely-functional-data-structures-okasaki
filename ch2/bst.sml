@@ -101,4 +101,24 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
           loop (y, s)
         end
         handle SameValue => s
+
+  (* Exercise 2.5 *)
+  fun complete (x, 0) = E
+    | complete (x, d) =
+        let val t = complete (x, d-1) in
+          T (t, x, t)
+        end
+
+  fun create (x, 0) = E
+    | create (x, n) =
+        let fun create2 (x, m) = (create (x, m), create (x, m+1)) in
+          if (n-1) mod 2 = 0 then
+            let val t = create (x, (n-1) div 2) in
+              T (t, x, t)
+            end
+          else
+            let val (l, r) = create2 (x, (n-1) div 2) in
+              T (l, x, r)
+            end
+        end
 end
