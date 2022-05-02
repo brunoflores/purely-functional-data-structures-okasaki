@@ -19,7 +19,8 @@ large as the rank of its right sibling
 The _rank_ of a node: the length of its _right spine_
 (the rightmost path from the node in question to an empty node).
 
-Consequence of the leftist property: ==the right spine of any node is always the shortest path to an empty node==.
+Consequence of the leftist property: **the right spine of any node is always 
+the shortest path to an empty node**.
 
 Files:
 
