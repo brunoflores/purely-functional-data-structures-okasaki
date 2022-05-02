@@ -59,6 +59,16 @@ end
 
 ;
 
+(* Exercise 2.1 *)
+let fun suffixes []        = [[]]
+      | suffixes [x]       = [x] :: (suffixes [])
+      | suffixes (x :: xs) = (x :: xs) :: (suffixes xs)
+    val l1 = [1, 2, 3] in
+  suffixes l1
+end
+
+;
+
 structure CS = CustomStack;
 
 let val l1 = CS.cons (1, (CS.cons (2, (CS.cons (3, CS.empty)))))
