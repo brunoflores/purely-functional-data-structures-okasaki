@@ -6,6 +6,7 @@ signature Set = sig
 
   val insert : Elem * Set -> Set
   val insert' : Elem * Set -> Set
+  val insert'' : Elem * Set -> Set
 
   val member : Elem * Set -> bool
   val member' : Elem * Set -> bool
@@ -46,22 +47,27 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
   *  The idea here is to remedy the situation with [member] above,
   *  where, in the worst case, it performs 2d comparisons, where
   *  d is the depth of the tree.
-  *  In this solution I keep track of csndidate elements that
-  *  might be equal to the query element, and check for equality
+  *
+  *  In this solution I keep track of a candidate element [c] that
+  *  might be equal to the query element [x], and check for equality
   *  only when hitting the bottom of the tree (the base case).
+  *
+  *  This solution takes no more than d+1 comparisons.
   *)
   fun member' (x, E) = false
     | member' (x, s as T (_, y, _)) =
-        let fun loop (c, E) = Element.eq (x, c)
+        let fun loop (c, E) = Element.eq (x, c) (* this is always the bottom a non-empty tree;
+                                                   compares query with final candidate;
+                                                   never reaches here on first iteration *)
               | loop (c, T (a, y, b)) = if Element.lt (x, y)
-                                        then loop (c, a)
-                                        else loop (c, b)
+                                        then loop (c, a) (* keep same candidate and look left *)
+                                        else loop (y, b) (* replace candidate and look right *)
         in
-          loop (x, s)
+          loop (y, s) (* begin with the obvious first candidate *)
         end
 
   (* Exercise 2.3
-  *  Avoid unnecessary copying when inserting an existing element
+  *  Avoid unnecessary copying when inserting an existing element.
   *)
   fun insert' (x, s) =
     let exception SameValue
@@ -73,4 +79,22 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
       loop s
     end
     handle SameValue => s
+
+  (* Exercise 2.4
+  *  Combine ideas above for the insert case.
+  *  No unnecessary copying and uses no more than d+1 comparisons.
+  *)
+  fun insert'' (x, E) = T (E, x, E)
+    | insert'' (x, s as T (_, y, _)) =
+        let exception SameValue
+            fun loop (c, E) = if Element.eq (x, c)
+                              then raise SameValue (* avoid copy *)
+                              else T (E, x, E) (* insert at the bottom of tree *)
+              | loop (c, T (a, y, b)) = if Element.lt (x, y)
+                                        then T (loop (c, a), y, b)
+                                        else T (a, y, loop (y, b))
+        in
+          loop (y, s)
+        end
+        handle SameValue => s
 end
