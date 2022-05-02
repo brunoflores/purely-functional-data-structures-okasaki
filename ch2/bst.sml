@@ -1,3 +1,5 @@
+use "../std-lib.sml";
+
 signature Set = sig
   type Elem
   type Set
@@ -10,15 +12,6 @@ signature Set = sig
 
   val member : Elem * Set -> bool
   val member' : Elem * Set -> bool
-end
-
-(* A totally ordered type and its comparison functions. *)
-signature Ordered = sig
-  type t
-
-  val eq : t * t -> bool
-  val lt : t * t -> bool
-  val leq : t * t -> bool
 end
 
 (* Implementation of binary search trees as a SML functor. *)

@@ -45,6 +45,9 @@ persistent identity.
 
 - Chapter 1: Introduction (you are here)
 - [Chapter 2: Persistence](ch2)
+- [Chapter 3: Some Familiar Data Structures in a Functional Setting](ch3)
+
+File [std-lib.sml](std-lib.sml) defines a shared standard library.
 
 [^1]: Okasaki, C. (1999). Purely functional data structures.
 [^2]: Robert Harper. Programming in Standard ML. Draft, 2013.
