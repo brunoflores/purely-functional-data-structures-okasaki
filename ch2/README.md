@@ -32,3 +32,7 @@ Not polymorphic in the type of elements because they cannot accept
 arbitrary types as elements. We make the type of elements and its
 attendant comparison functions parameter of the _functor_ that
 implements binary search trees.
+
+Files:
+
+- [bst.sml](bst.sml)
