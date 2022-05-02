@@ -45,3 +45,25 @@ structure CustomStack : Stack = struct
  fun ++ Nil s            = s
    | ++ (Cons (x, s)) s2 = Cons (x, (++ s s2))
 end
+
+structure Driver = struct
+
+  fun main (prog_name, args) = 0
+
+end
+
+;
+
+let val l1 = [1, 2, 3]
+    val l2 = [4, 5] in
+  List.++ l1 l2
+end
+
+;
+
+structure CS = CustomStack;
+
+let val l1 = CS.cons (1, (CS.cons (2, (CS.cons (3, CS.empty)))))
+    val l2 = CS.cons (4, CS.empty) in
+  CS.++ l1 l2
+end
