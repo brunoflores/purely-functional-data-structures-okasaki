@@ -23,6 +23,7 @@ functor LeftistHeap (Element : Ordered) : Heap = struct
   fun rank E = 0
     | rank (T (r, _, _, _)) = r
 
+  (* Calculate the rank of a T node and swaps its children if necessary. *)
   fun makeT (x, a, b) = if rank a >= rank b
                         then T (rank b + 1, x, a, b)
                         else T (rank a + 1, x, b, a)
@@ -32,9 +33,18 @@ functor LeftistHeap (Element : Ordered) : Heap = struct
   fun isEmpty E = true
     | isEmpty _ = false
 
+  (* Key insight behind leftist heaps:
+  *  two heaps can be merged by merging their right spines as you would merge
+  *  two sorted lists, and the swapping the children of nodes along this path
+  *  as necessary to restore the leftist property.
+  *)
   fun merge (h, E) = h
     | merge (E, h) = h
     | merge (h1 as T (_, x, a1, b1), h2 as T (_, y, a2, b2)) =
+        (* The behaviour is two passes:
+        *  a top-down pass of calls to merge, and
+        *  a bottom-up pass of calls to makeT.
+        *)
         if Elem.leq (x, y)
         then makeT (x, a1, merge (b1, h2))
         else makeT (y, a2, merge (h1, b2))
