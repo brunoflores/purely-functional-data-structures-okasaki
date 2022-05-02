@@ -74,7 +74,7 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
         fun loop E             = T (E, x, E)
           | loop (T (a, y, b)) = if Element.lt (x, y) then T (loop a, y, b)
                                  else if Element.lt (y, x) then T (a, y, loop b)
-                                 else raise SameValue
+                                 else raise SameValue (* avoid copy *)
     in
       loop s
     end
@@ -91,8 +91,8 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
                               then raise SameValue (* avoid copy *)
                               else T (E, x, E) (* insert at the bottom of tree *)
               | loop (c, T (a, y, b)) = if Element.lt (x, y)
-                                        then T (loop (c, a), y, b)
-                                        else T (a, y, loop (y, b))
+                                        then T (loop (c, a), y, b) (* keep same candidate and look left *)
+                                        else T (a, y, loop (y, b)) (* replace candidate and look right *)
         in
           loop (y, s)
         end
