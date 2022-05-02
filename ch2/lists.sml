@@ -47,9 +47,7 @@ structure CustomStack : Stack = struct
 end
 
 structure Driver = struct
-
   fun main (prog_name, args) = 0
-
 end
 
 ;
