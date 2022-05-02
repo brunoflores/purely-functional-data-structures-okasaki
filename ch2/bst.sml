@@ -4,6 +4,7 @@ signature Set = sig
 
   val empty : Set
   val insert : Elem * Set -> Set
+  val insert' : Elem * Set -> Set
   val member : Elem * Set -> bool
 end
 
@@ -37,4 +38,18 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
         if Element.lt (x, y) then T (insert (x, a), y, b)
         else if Element.lt (y, x) then T (a, y, insert (x, b))
         else s
+
+  (* Exercise 2.3
+  *  Avoid unnecessary copying when inserting an existing element
+  *)
+  fun insert' (x, s) =
+    let exception SameValue
+        fun loop E             = T (E, x, E)
+          | loop (T (a, y, b)) = if Element.lt (x, y) then T (loop a, y, b)
+                                 else if Element.lt (y, x) then T (a, y, loop b)
+                                 else raise SameValue
+    in
+      loop s
+    end
+    handle SameValue => s
 end
