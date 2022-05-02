@@ -22,6 +22,12 @@ The _rank_ of a node: the length of its _right spine_
 Consequence of the leftist property: **the right spine of any node is always 
 the shortest path to an empty node**.
 
+Represent leftist heaps as binary trees decorated with rank information:
+
+```sml
+datatype Heap = E | T of int * Elem.t * Heap * Heap
+```
+
 Files:
 
 - [heap.sml](heap.sml)
