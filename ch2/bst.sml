@@ -83,6 +83,10 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
   (* Exercise 2.4
   *  Combine ideas above for the insert case.
   *  No unnecessary copying and uses no more than d+1 comparisons.
+  *
+  *  Use an exception as a form of back-tracking to avoid copying
+  *  when reaching the bottom of the tree and realising the element
+  *  is already there.
   *)
   fun insert'' (x, E) = T (E, x, E)
     | insert'' (x, s as T (_, y, _)) =
