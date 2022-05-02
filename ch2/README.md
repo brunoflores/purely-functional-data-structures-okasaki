@@ -22,7 +22,7 @@ Files:
 Recap: Binary trees with elements stored at the interior nodes in
 _symmetric order_. In SML:
 
-``sml
+```sml
 datatype Tree = E | T of Tree * Elem * Tree
 ```
 
