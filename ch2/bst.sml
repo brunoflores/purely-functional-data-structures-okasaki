@@ -122,3 +122,37 @@ functor UnbalancedSet (Element : Ordered) : Set = struct
             end
         end
 end
+
+(* Exercise 2.6 *)
+exception NotFound
+
+signature FiniteMap = sig
+  type Key
+  type 'a Map
+
+  val empty : 'a Map
+  val bind : Key * 'a * 'a Map -> 'a Map
+  val lookup : Key * 'a Map -> 'a
+end
+
+functor UnbalancedFiniteMap (Element : Ordered) : FiniteMap = struct
+  type Key = Element.t
+
+  datatype 'a Tree = E | T of 'a Tree * Key * 'a * 'a Tree
+
+  type 'a Map = 'a Tree
+
+  val empty = E
+
+  fun bind (k, v, E) = T (E, k, v, E)
+    | bind (k, v, t as T (a, k', v', b)) =
+        if Element.lt (k, k') then T (bind (k, v, a), k', v', b)
+        else if Element.lt (k', k) then T (a, k', v', bind (k, v, b))
+        else t
+
+  fun lookup (k, E) = raise NotFound
+    | lookup (k, T (a, k', v', b)) =
+        if Element.lt (k, k') then lookup (k, a)
+        else if Element.lt (k', k) then lookup (k, b)
+        else v'
+end
