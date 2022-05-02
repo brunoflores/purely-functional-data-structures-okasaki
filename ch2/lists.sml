@@ -60,9 +60,9 @@ end
 ;
 
 (* Exercise 2.1 *)
-let fun suffixes []        = [[]]
-      | suffixes [x]       = [x] :: (suffixes [])
-      | suffixes (x :: xs) = (x :: xs) :: (suffixes xs)
+let fun suffixes []                     = [[]]
+      | suffixes (matched as [x])       = [matched, []]
+      | suffixes (matched as (x :: xs)) = matched :: (suffixes xs)
     val l1 = [1, 2, 3] in
   suffixes l1
 end
