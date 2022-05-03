@@ -143,11 +143,12 @@ functor RedBlackSet (Element : Ordered) : Set = struct
   *  is the same in every case: rewrite the black-red-red path as a red node
   *  with two black children.
   *)
-  fun balance (B,T (R,T (R,a,x,b),y,c),z,d) = T (R,T (B,a,x,b),y,T (B,c,z,d))
-    | balance (B,T (R,a,x,T (R,b,y,c)),z,d) = T (R,T (B,a,x,b),y,T (B,c,z,d))
-    | balance (B,a,x,T (R,T (R,b,y,c),z,d)) = T (R,T (B,a,x,b),y,T (B,c,z,d))
-    | balance (B,a,x,T (R,b,y,T (R,c,z,d))) = T (R,T (B,a,x,b),y,T (B,c,z,d))
-    | balance body = T body
+  fun balance ( (B,T (R,T (R,a,x,b),y,c),z,d)
+              | (B,T (R,a,x,T (R,b,y,c)),z,d)
+              | (B,a,x,T (R,T (R,b,y,c),z,d))
+              | (B,a,x,T (R,b,y,T (R,c,z,d))) ) =
+                  T (R,T (B,a,x,b),y,T (B,c,z,d))
+              | balance body = T body
 
   fun insert (x, s) =
     let fun ins E = T (R, E, x, E) (* initially color it red *)
