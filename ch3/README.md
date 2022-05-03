@@ -30,7 +30,7 @@ datatype Heap = E | T of int * Elem.t * Heap * Heap
 
 Files:
 
-- [leftistheap.sml](heap.sml)
+- [leftistheap.sml](leftistheap.sml)
 
 ## Binomial Heap
 
