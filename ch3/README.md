@@ -30,13 +30,15 @@ datatype Heap = E | T of int * Elem.t * Heap * Heap
 
 Files:
 
-- [heap.sml](heap.sml)
+- [leftistheap.sml](heap.sml)
 
-## Binomial Queues
+## Binomial Heap
 
-`TODO`
+Files:
 
-## Red-Black Trees
+- [binomialheap.sml](binomialheap.sml)
+
+## Red-Black Heap
 
 One of the most popular families of balanced binary trees.
 
@@ -50,3 +52,7 @@ black nodes.
 Taken together, these two invariants guarantee that the longest possible path
 in a red-black tree, one with alternating black and red nodes, is no more
 than twice as long as the shortest possible path, one with black nodes only.
+
+Files:
+
+- [redblackheap.sml](redblackheap.sml)
