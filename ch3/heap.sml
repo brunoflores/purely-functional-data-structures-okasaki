@@ -51,6 +51,13 @@ functor LeftistHeap (Element : Ordered) : Heap = struct
 
   fun insert (x, h) = merge (T (1, x, E, E), h)
 
+  (* Excercise 3.2 *)
+  fun insert' (x, E) = T (1, x, E, E)
+    | insert' (x, h as T (r, y, a, b)) =
+        if Elem.leq (x, y)
+        then T (1, x, h, E)
+        else makeT (y, a, insert' (x, b))
+
   fun findMin E = raise Empty
     | findMin (T (_, x, _, _)) = x
 
