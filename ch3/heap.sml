@@ -158,6 +158,12 @@ functor RedBlackSet (Element : Ordered) : Set = struct
               else s
         val T (_, a, y, b) = ins s (* guaranteed non-empty *)
     in
+      (* After balancing a given subtree, the red root of that subtree might
+      *  now be the child of another red node. Thus, we continue balancing
+      *  all the way to the top of the tree. At the very top of the tree, we
+      *  might end up with a red node with a red child. We handle this case by
+      *  always coloring the root to be black.
+      *)
       T (B, a, y, b) (* force the final root to be black *)
     end
 
