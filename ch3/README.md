@@ -38,4 +38,15 @@ Files:
 
 ## Red-Black Trees
 
-`TODO`
+One of the most popular families of balanced binary trees.
+
+Binary search tree in which every node is colored either red or black. Two
+balance invariants:
+
+1. No red node has a red child
+2. Every path from the root to an empty node contains the same number of
+black nodes.
+
+Taken together, these two invariants guarantee that the longest possible path
+in a red-black tree, one with alternating black and red nodes, is no more
+than twice as long as the shortest possible path, one with black nodes only.

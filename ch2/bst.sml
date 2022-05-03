@@ -1,19 +1,5 @@
 use "../std-lib.sml";
 
-signature Set = sig
-  type Elem
-  type Set
-
-  val empty : Set
-
-  val insert : Elem * Set -> Set
-  val insert' : Elem * Set -> Set
-  val insert'' : Elem * Set -> Set
-
-  val member : Elem * Set -> bool
-  val member' : Elem * Set -> bool
-end
-
 (* Implementation of binary search trees as a SML functor. *)
 functor UnbalancedSet (Element : Ordered) : Set = struct
   type Elem = Element.t
