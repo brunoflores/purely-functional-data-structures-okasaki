@@ -64,4 +64,15 @@ functor LeftistHeap (Element : Ordered) : Heap = struct
   fun deleteMin E = raise Empty
     | deleteMin (T (_, _, a, b)) = merge (a, b)
 
+  (* Exercise 3.3 *)
+  fun fomList xs =
+    let fun mergeList ([]) = E
+          | mergeList ([x]) = x
+          | mergeList (x1 :: x2 :: xs) = mergeList (merge (x1, x2) :: xs)
+        fun toTreeList [] = E :: []
+          | toTreeList (x :: xs) = T (1, x, E, E) :: toTreeList xs
+    in
+      mergeList (toTreeList xs)
+    end
+
 end
