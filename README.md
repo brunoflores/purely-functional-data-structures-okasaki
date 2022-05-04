@@ -46,6 +46,7 @@ persistent identity.
 - Chapter 1: Introduction (you are here)
 - [Chapter 2: Persistence](ch2)
 - [Chapter 3: Some Familiar Data Structures in a Functional Setting](ch3)
+- [Chapter 4: Lazy Evaluation](ch4)
 
 File [std-lib.sml](std-lib.sml) defines a shared standard library.
 
