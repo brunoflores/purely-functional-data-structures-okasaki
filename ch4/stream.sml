@@ -8,9 +8,7 @@ signature Stream = sig
   val append  : 'a Stream * 'a Stream -> 'a Stream
   val take    : int * 'a Stream -> 'a Stream
   val drop    : int * 'a Stream -> 'a Stream
-  (*
   val reverse : 'a Stream -> 'a Stream
-  *)
 end
 
 structure Stream : Stream = struct
