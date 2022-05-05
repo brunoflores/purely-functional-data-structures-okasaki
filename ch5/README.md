@@ -53,4 +53,6 @@ One describes a function ![][phi] that maps each object _d_ to a real number
 called the _potential_ of _d_. The function ![][phi] is typically chosen
 so that the potential in initially zero and is always non-negative.
 
+![][5_1_a.png]
+
 [phi]: phi.png
