@@ -12,4 +12,4 @@ individual operation run in _O(1)_.
 
 ## Some terminology
 
-<img src="https://latex.codecogs.com/svg.image?\bg{white}\sum_{m}^{i=1}{a_i}\geqslant\sum_{m}^{i=1}{t_i}" title="https://latex.codecogs.com/svg.image?\bg{white}\sum_{m}^{i=1}{a_i}\geqslant\sum_{m}^{i=1}{t_i}" />
+<img src="https://latex.codecogs.com/png.image?\dpi{110}\bg{white}\sum_{m}^{i=1}{a_i}\geqslant\sum_{m}^{i=1}{t_i}" title="https://latex.codecogs.com/png.image?\dpi{110}\bg{white}\sum_{m}^{i=1}{a_i}\geqslant\sum_{m}^{i=1}{t_i}" />
