@@ -2,6 +2,9 @@ open Lazy
 (* open SMLofNJ.Susp *)
 
 signature Stream = sig
+
+  (* Expose the internal representation to support pattern matching
+     on streams. *)
   datatype 'a StreamCell = Nil | Cons of 'a * 'a Stream
   withtype 'a Stream = 'a StreamCell susp
 
@@ -9,6 +12,9 @@ signature Stream = sig
   val take    : int * 'a Stream -> 'a Stream
   val drop    : int * 'a Stream -> 'a Stream
   val reverse : 'a Stream -> 'a Stream
+  val sort    : int Stream -> int Stream
+
+  val toList  : 'a Stream -> 'a list
 end
 
 structure Stream : Stream = struct
@@ -33,4 +39,24 @@ structure Stream : Stream = struct
           | reverse' ($ (Cons (x, s)), r) = reverse' (s, $ (Cons (x, r)))
     in reverse' (s, $ Nil) end
 
+  fun sort ($ Nil) = $ Nil
+    | sort ($ (Cons (x, xs))) =
+        let fun insert (x, $ Nil) = $ (Cons (x, $ Nil))
+              | insert (x, s as $ (Cons (y, s'))) =
+                  if x < y
+                  then $ (Cons (x, s))
+                  else $ (Cons (y, insert (x, s')))
+        in insert (x, sort xs) end
+
+  fun toList ($ Nil) = []
+    | toList ($ (Cons (x, xs))) = x :: (toList xs)
+
 end
+
+(*
+open Stream;
+val s1 = $ (Cons (2, $ (Cons (1, $ (Cons (3, $ Nil))))));
+val s2 = sort s1;
+val s3 = take (3, s2);
+val l1 = toList s3;
+*)
