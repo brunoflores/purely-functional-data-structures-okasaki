@@ -52,4 +52,4 @@ the credits spent by the operation,
 One describes a function ![][1] that maps each object _d_ to a real number
 called the _potential_ of _d_.
 
-[1]: <img src="https://latex.codecogs.com/png.image?\inline&space;\large&space;\dpi{150}\Phi" title="https://latex.codecogs.com/png.image?\inline \large \dpi{150}\Phi" />
+[1]: phi.png
