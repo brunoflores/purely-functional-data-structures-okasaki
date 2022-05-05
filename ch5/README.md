@@ -43,3 +43,11 @@ the operation plus the credits allocated by the operation minus
 the credits spent by the operation,
 
 <img src="https://latex.codecogs.com/png.image?\large&space;\dpi{150}\bg{white}a_i=t_i&plus;c_i-\overline{c_i}" title="https://latex.codecogs.com/png.image?\large \dpi{150}\bg{white}a_i=t_i+c_i-\overline{c_i}" />
+
+- Every credit must be allocated before it is spent, and
+- No credit may be spent more than once.
+
+## The Physicist's Method
+
+One describes a function
+<img src="https://latex.codecogs.com/png.image?\inline&space;\large&space;\dpi{150}\Phi" title="https://latex.codecogs.com/png.image?\inline \large \dpi{150}\Phi" /> that
