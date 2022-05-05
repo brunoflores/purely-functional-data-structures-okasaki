@@ -18,6 +18,8 @@ structure BatchedQueue : Queue = struct
   val empty = ([], [])
   fun isEmpty (f, _) = null f
 
+  (* Maintain invariant that f is empty only if r is also empty (the entire
+     queue is empty. *)
   fun checkf ([], r) = (rev r, [])
     | checkf q = q
 
