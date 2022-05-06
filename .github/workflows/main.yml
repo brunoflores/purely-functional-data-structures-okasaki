@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: floresbruno/sml-nj-ci:v0.0.3
+      image: floresbruno/sml-nj-ci:v0.0.4
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
