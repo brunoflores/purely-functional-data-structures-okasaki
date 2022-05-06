@@ -3,13 +3,15 @@ name: CI Master
 on:
   push:
     branches: [ master ]
-  
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch: {}
 
 jobs:
   build:
-    runs-on: floresbruno/sml-nj-ci:v0.0.2
+    runs-on: ubuntu-latest
+    container:
+      image: floresbruno/sml-nj-ci:v0.0.2
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
