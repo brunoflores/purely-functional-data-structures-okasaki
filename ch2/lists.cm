@@ -1,7 +1,0 @@
-Library
-  structure Driver
-is
-  lists.sml
-
-  $/basis.cm
-  $/smlnj-lib.cm
