@@ -12,7 +12,7 @@ signature Stack = sig
 end
 
 (* Implementation of stacks using the built-in type of lists. *)
-structure List : Stack = struct
+structure List' : Stack = struct
   type 'a Stack = 'a list
 
   val empty = []
@@ -54,7 +54,7 @@ end
 
 let val l1 = [1, 2, 3]
     val l2 = [4, 5] in
-  List.++ l1 l2
+  List'.++ l1 l2
 end
 
 ;
