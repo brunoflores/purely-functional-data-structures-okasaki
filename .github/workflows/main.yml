@@ -8,15 +8,26 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build:
+  "Test with SML/NJ":
     runs-on: ubuntu-latest
     container:
       image: floresbruno/sml-nj-ci:v0.0.4
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
       - name: Test
         run: |
           ml-build driver/all.cm Driver.main all
           sml @SMLload=all
+
+  "Test with MLton":
+    runs-on: ubuntu-latest
+    container:
+      image: floresbruno/mlton-ci:v0.0.1
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: Test
+        run: |
+          mlton -output all driver/mlton/driver.mlb
+          ./all
