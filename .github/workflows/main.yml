@@ -24,10 +24,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: floresbruno/mlton-ci:v0.0.1
+    strategy:
+      matrix:
+        backend: ["native", "amd64", "c", "llvm"]
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Test
         run: |
-          mlton -output all driver/mlton/driver.mlb
+          mlton -codegen ${{ matrix.backend }} -output all driver/mlton/driver.mlb
           ./all
