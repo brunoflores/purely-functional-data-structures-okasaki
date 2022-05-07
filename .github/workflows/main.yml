@@ -8,7 +8,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  "Test with SML/NJ":
+  "Test-with-SML-NJ":
     runs-on: ubuntu-latest
     container:
       image: floresbruno/sml-nj-ci:v0.0.4
@@ -20,7 +20,7 @@ jobs:
           ml-build driver/all.cm Driver.main all
           sml @SMLload=all
 
-  "Test with MLton":
+  "Test-with-MLton":
     runs-on: ubuntu-latest
     container:
       image: floresbruno/mlton-ci:v0.0.1
