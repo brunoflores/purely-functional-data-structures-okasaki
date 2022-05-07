@@ -24,7 +24,7 @@ jobs:
   "Test-with-MLton":
     runs-on: ubuntu-latest
     container:
-      image: floresbruno/mlton-ci:snapshot-master
+      image: floresbruno/mlton-ci:v0.0.2
     strategy:
       matrix:
         backend: ["native", "amd64", "c", "llvm"]
