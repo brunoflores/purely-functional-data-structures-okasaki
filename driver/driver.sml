@@ -22,4 +22,6 @@ structure Driver = struct
         val _ = test_2 ()
         val _ = test_3 ()
     in 0 end
-end
+end;
+
+let val x = Driver.main ((), ()) in x end

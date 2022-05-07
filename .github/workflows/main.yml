@@ -17,8 +17,8 @@ jobs:
       - uses: actions/checkout@v3
       - name: Test
         run: |
-          cd driver/smlnj
-          ml-build all.cm Driver.main all
+          cd driver/
+          ml-build driver.cm Driver.main all
           sml @SMLload=all
 
   "Test-with-MLton":
@@ -33,6 +33,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Test
         run: |
-          cd driver/mlton
+          cd driver/
           mlton -codegen ${{ matrix.backend }} -output all driver.mlb
           ./all

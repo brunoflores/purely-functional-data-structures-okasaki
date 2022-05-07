@@ -1,0 +1,17 @@
+(* http://mlton.org/MLBasisAvailableLibraries *)
+$(SML_LIB)/basis/basis.mlb
+
+local
+  lists.sml
+in
+  structure List'
+  structure CustomStack
+end
+
+local
+  ../lib/std-lib.sml
+  bst.sml
+in
+  functor UnbalancedSet
+  functor UnbalancedFiniteMap
+end

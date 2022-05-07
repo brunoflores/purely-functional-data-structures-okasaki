@@ -1,5 +1,3 @@
-use "../std-lib.sml";
-
 (* Implementation of binary search trees as a SML functor. *)
 functor UnbalancedSet (Element : Ordered) : Set = struct
   type Elem = Element.t
