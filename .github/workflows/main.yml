@@ -16,7 +16,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - name: Type-check lib
+      - name: Test
         run: |
-          ml-build all.cm Driver.main all
+          ml-build driver/all.cm Driver.main all
           sml @SMLload=all

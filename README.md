@@ -48,7 +48,12 @@ persistent identity.
 - [Chapter 3: Some Familiar Data Structures in a Functional Setting](ch3)
 - [Chapter 4: Lazy Evaluation](ch4)
 
-File [std-lib.sml](std-lib.sml) defines a shared standard library.
+Files in [lib/](lib/) define shared definitions.
+
+## Test
+
+Files in [driver/](driver/) are type-checked, compiled, linked and executed 
+by [Github actions](.github/workflows/).
 
 [^1]: Okasaki, C. (1999). Purely functional data structures.
 [^2]: Robert Harper. Programming in Standard ML. Draft, 2013.
