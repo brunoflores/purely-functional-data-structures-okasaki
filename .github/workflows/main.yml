@@ -28,12 +28,12 @@ jobs:
     strategy:
       matrix:
         backend: ["native", "amd64", "c", "llvm"]
-        linker_options: ["-link-opt --static", ""]
+        linker_options: ["--static", ""]
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Test
         run: |
           cd driver/
-          mlton -codegen ${{ matrix.backend }} ${{ matrix.linker_options }} -output all driver.mlb
+          mlton -codegen ${{ matrix.backend }} -link-opt "${{ matrix.linker_options }}" -output all driver.mlb
           ./all
