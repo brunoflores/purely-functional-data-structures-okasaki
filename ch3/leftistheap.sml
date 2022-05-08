@@ -1,5 +1,3 @@
-use "../std-lib.sml";
-
 functor LeftistHeap (Element : Ordered) : Heap = struct
   structure Elem = Element
 

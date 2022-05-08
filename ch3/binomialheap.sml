@@ -1,5 +1,3 @@
-use "../std-lib.sml";
-
 functor BinomialHeap (Element : Ordered) : Heap = struct
   structure Elem = Element
 

@@ -1,5 +1,3 @@
-use "../std-lib.sml";
-
 functor RedBlackSet (Element : Ordered) : Set = struct
   type Elem = Element.t
 
