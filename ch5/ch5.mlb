@@ -13,3 +13,10 @@ local
 in
   functor SplayHeap
 end
+
+local
+  ../lib/std-lib.sml
+  pairingheap.sml
+in
+  functor PairingHeap
+end

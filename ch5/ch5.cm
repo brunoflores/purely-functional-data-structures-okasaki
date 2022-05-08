@@ -1,3 +1,4 @@
 Group is
   queue.sml
   splayheap.sml
+  pairingheap.sml
