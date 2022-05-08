@@ -1,5 +1,3 @@
-use "../std-lib.sml";
-
 functor SplayHeap (Element : Ordered) : Heap = struct
   structure Elem = Element
 

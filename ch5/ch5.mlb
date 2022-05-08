@@ -1,0 +1,15 @@
+(* http://mlton.org/MLBasisAvailableLibraries *)
+$(SML_LIB)/basis/basis.mlb
+
+local
+  queue.sml
+in
+  structure BatchedQueue
+end
+
+local
+  ../lib/std-lib.sml
+  splayheap.sml
+in
+  functor SplayHeap
+end

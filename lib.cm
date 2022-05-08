@@ -4,5 +4,10 @@ Library
 
   functor UnbalancedSet
   functor UnbalancedFiniteMap
+
+  structure BatchedQueue
+  functor SplayHeap
 is
+  lib/std-lib.sml
   ch2/ch2.cm
+  ch5/ch5.cm
